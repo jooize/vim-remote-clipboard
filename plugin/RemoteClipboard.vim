@@ -24,7 +24,7 @@ function! g:RemoteClipboardGet()
 endfunction
 
 function! g:RemoteClipboardGetAndPasteAfter()
-	if s:RemoteClipboardGet() == 0
+	if g:RemoteClipboardGet() == 0
 		normal! "rP
 	else
 		return 1
@@ -32,7 +32,7 @@ function! g:RemoteClipboardGetAndPasteAfter()
 endfunction
 
 function! g:RemoteClipboardGetAndPasteBefore()
-	if s:RemoteClipboardGet() == 0
+	if g:RemoteClipboardGet() == 0
 		normal! "rp
 	else
 		return 1
@@ -43,8 +43,8 @@ function! s:RemoteClipboardSet()
 	call system(g:RemoteClipboardSetCommand, getreg("\""))
 endfunction
 
-command! -nargs=0 -bar RemoteClipboardGet call s:RemoteClipboardGet()
-command! -nargs=0 -bar RemoteClipboardGetAndPasteAfter call s:RemoteClipboardGetAndPasteAfter()
-command! -nargs=0 -bar RemoteClipboardGetAndPasteBefore call s:RemoteClipboardGetAndPasteBefore()
+command! -nargs=0 -bar RemoteClipboardGet call g:RemoteClipboardGet()
+command! -nargs=0 -bar RemoteClipboardGetAndPasteAfter call g:RemoteClipboardGetAndPasteAfter()
+command! -nargs=0 -bar RemoteClipboardGetAndPasteBefore call g:RemoteClipboardGetAndPasteBefore()
 command! -nargs=0 -bar RemoteClipboardSet call s:RemoteClipboardSet()
 

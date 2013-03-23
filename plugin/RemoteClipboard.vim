@@ -9,15 +9,15 @@ if !exists(g:RemoteClipboardSetCommand)
 endif
 
 function! g:RemoteClipboardGet()
-	let l:RemoteClipboard = system(g:RemoteClipboardGetCommand)
+	let l:RemoteClipboardContent = system(g:RemoteClipboardGetCommand)
 	if !v:shell_error
-		call setreg(g:RemoteClipboardGetToRegister, l:RemoteClipboard)
+		call setreg(g:RemoteClipboardGetToRegister, l:RemoteClipboardContent)
 	else
 		echohl ErrorMsg
 		echomsg "Failed to retrieve remote clipboard."
 		echohl WarningMsg
 		echomsg "$ ".g:RemoteClipboardGetCommand
-		echomsg l:RemoteClipboard
+		echomsg l:RemoteClipboardContent
 		echohl None
 		return '' " Return nothing to not paste 0 or 1 when calling with <C-r>=
 	endif

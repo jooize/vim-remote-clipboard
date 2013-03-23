@@ -13,13 +13,13 @@ function! g:RemoteClipboardGet()
 	if !v:shell_error
 		call setreg(g:RemoteClipboardGetToRegister, l:RemoteClipboard)
 	else
-		return 1
 		echohl ErrorMsg
 		echomsg "Failed to retrieve remote clipboard."
 		echohl WarningMsg
 		echomsg "$ ".g:RemoteClipboardGetCommand
 		echomsg l:RemoteClipboard
 		echohl None
+		return '' " Return nothing to not paste 0 or 1 when calling with <C-r>=
 	endif
 endfunction
 

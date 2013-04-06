@@ -1,10 +1,10 @@
-if !exists(g:RemoteClipboardGetCommand)
+if !exists('g:RemoteClipboardGetCommand')
 	let g:RemoteClipboardGetCommand = "ssh localhost pbpaste"
 endif
-if !exists(g:RemoteClipboardGetToRegister)
+if !exists('g:RemoteClipboardGetToRegister')
 	let g:RemoteClipboardGetToRegister = 'r'
 endif
-if !exists(g:RemoteClipboardSetCommand)
+if !exists('g:RemoteClipboardSetCommand')
 	let g:RemoteClipboardSetCommand = "ssh localhost pbcopy"
 endif
 
